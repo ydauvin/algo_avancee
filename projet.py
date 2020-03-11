@@ -1,8 +1,2 @@
-def validecorde():
-    """
-    
-    """
-    print("a")
-    return
-
-def main()
+def hello() :
+    print("Hello World!")

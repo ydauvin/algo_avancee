@@ -6,4 +6,4 @@ from matplotlib.collections import PatchCollection
 import numpy
 
 def validecorde(i,j):
-    printf("a")
+    print("a")

@@ -1,3 +1,6 @@
-def validecorde(i):
+def validecorde():
+    """
+    
+    """
     print("a")
     return

@@ -1,21 +1,22 @@
 #-*- coding: utf-8 -*-
-import math
-import numpy
-from scipy import *
-int n = 5
-tabcorde= array([n],[n])
+#import math
+#import numpy
+#from scipy import *
+n = 5
+tabcorde= []
 
 
+def main():
+    validecorde(1, 2)
 
 
 def validecorde(i,j) :
-    n = len(tabcorde)
-    
-    if i-j >1 or i-j < 1
-        
+    l=len(tabcorde)
+    print(l)
 
 
 
-    for 
-    
-    return 
+
+#doit toujours etre a la fin
+if __name__ == '__main__':
+    main()

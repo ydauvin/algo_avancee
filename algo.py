@@ -3,12 +3,15 @@ import math
 #import numpy
 #from scipy import *
 n = 7
-tabcorde= [(0,2),(0,3),(3,5)]
+#tabcorde= [(0,2),(0,3),(3,5)]
+tabcorde=[]
 
 def main():
     print(tabcorde)
-    print(validecorde(4,6))
-    test()
+    #print(validecorde(1,6))
+    #test()
+    essais_successifs()
+    print(tabcorde)
 
 def test():
     #affiche tout les cordes qui peuvent etre tracées
@@ -46,6 +49,18 @@ def validecorde(i,j) :
             elif (k[0]<j and k[1]>j) and (i<k[0] or i>k[1]):
                 return False
     return True
+
+def essais_successifs():
+    k=0
+    for i in range(0,n):
+        while validecorde(i,k)==False:
+            k+=1
+            if k==n-1 :
+                break
+        if validecorde(i,k):
+            tabcorde.append((i,k))
+        k=0
+        print(tabcorde)
 
 
 #doit toujours etre a la fin

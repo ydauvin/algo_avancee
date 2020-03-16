@@ -6,9 +6,7 @@ n = 7
 tabcorde= [(0,2),(0,3)]
 
 def main():
-    print(8%8)
     print(validecorde(4,6))
-    test()
 
 def test():
     for y in range(0,n):

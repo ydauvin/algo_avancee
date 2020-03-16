@@ -5,18 +5,30 @@ import math
 n = 7
 tabcorde= [(0,2),(0,3)]
 
-
 def main():
-    print(validecorde(7, 3))
+    print(8%8)
+    print(validecorde(4,6))
+    test()
+
+def test():
+    for y in range(0,n):
+        for p in range(0,n):
+            print("i :", y, "| j :", p, "| corde :", validecorde(y, p))
 
 def validecorde(i,j) :
+    i=i%n
+    j=j%n
     l = len(tabcorde)
     if(l>=n-3):
+        return False
+    elif i==j :
         return False
     if(i>j):
         tmp=j
         j=i
         i=tmp
+    if(abs(i-j)==1 or ((j+1+i)%n)==0):
+        return False
     if(abs(i-j)>1):
         for k in tabcorde :
             if(k[0]==i and k[1]==j):

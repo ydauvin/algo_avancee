@@ -1,17 +1,24 @@
 #-*- coding: utf-8 -*-
 import math
-#import numpy
-#from scipy import *
 n = 7
 #tabcorde= [(0,2),(0,3),(3,5)]
 tabcorde=[]
 
 def main():
-    print(tabcorde)
+    print("3 : ",nbtri(3))
+    print("4 : ",nbtri(4))
+    print("5 : ",nbtri(5))
+    print("6 : ",nbtri(6))
+    print("7 : ",nbtri(7))
+    print("8 : ",nbtri(8))
+    print("9 : ",nbtri(9))
+    print("10 : ",nbtri(10))
+
+    #print(tabcorde)
     #print(validecorde(1,6))
     #test()
-    essais_successifs()
-    print(tabcorde)
+    #essais_successifs()
+    #print(tabcorde)
 
 def test():
     #affiche tout les cordes qui peuvent etre tracées
@@ -68,6 +75,9 @@ def essais_successifs():
         k=0
         print(tabcorde)
 
+def nbtri(n):
+    c=n-2
+    return ((math.factorial(2*c))/((math.factorial(c+1))*(math.factorial(c))))
 
 #doit toujours etre a la fin
 if __name__ == '__main__':

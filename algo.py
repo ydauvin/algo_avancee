@@ -3,17 +3,26 @@ import math
 n = 7
 #tabcorde= [(0,2),(0,3),(3,5)]
 tabcorde=[]
-
-polygone=[[0,10],[0,20],[8,26],[15,26],[27,21],[22,12],[10,0]]
+polygone=[]
+#polygone=[(0,10),(0,20),(8,26),(15,26),(27,21),(22,12),(10,0)]
 
 def main():
+    figure()
     print("7 : ",nbtri(7))
-    print(longueur((0,0),(1,1)))
+    print(longueur(0,1))
     #print(tabcorde)
     #print(validecorde(1,6))
     #test()
     #essais_successifs()
     #print(tabcorde)
+
+def figure():
+    n=int(input("Nombre de sommet de la figure : "))
+    for i in range(0,n):
+        x=int(input("x = "))
+        y=int(input("y = "))
+        polygone.append((x,y))
+    print(polygone)
 
 def test():
     #affiche tout les cordes qui peuvent etre tracées
@@ -74,7 +83,9 @@ def nbtri(n):
     c=n-2
     return ((math.factorial(2*c))/((math.factorial(c+1))*(math.factorial(c))))
 
-def longueur(a,b):
+def longueur(i,j):
+    a=polygone[i]
+    b=polygone[j]
     xa=a[0]
     ya=a[1]
     xb=b[0]
@@ -86,5 +97,3 @@ def longueur(a,b):
 #doit toujours etre a la fin
 if __name__ == '__main__':
      main()
-     print(validecorde(0,4));
-     print(validecorde(1,3));

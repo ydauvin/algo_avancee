@@ -4,6 +4,8 @@ n = 7
 #tabcorde= [(0,2),(0,3),(3,5)]
 tabcorde=[]
 
+polygone=[[0,10],[0,20],[8,26],[15,26],[27,21],[22,12],[10,0]]
+
 def main():
     print("7 : ",nbtri(7))
     print(longueur((0,0),(1,1)))
@@ -83,4 +85,6 @@ def longueur(a,b):
 
 #doit toujours etre a la fin
 if __name__ == '__main__':
-    main()
+     main()
+     print(validecorde(0,4));
+     print(validecorde(1,3));

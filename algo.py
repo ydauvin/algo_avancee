@@ -5,15 +5,8 @@ n = 7
 tabcorde=[]
 
 def main():
-    print("3 : ",nbtri(3))
-    print("4 : ",nbtri(4))
-    print("5 : ",nbtri(5))
-    print("6 : ",nbtri(6))
     print("7 : ",nbtri(7))
-    print("8 : ",nbtri(8))
-    print("9 : ",nbtri(9))
-    print("10 : ",nbtri(10))
-
+    print(longueur((0,0),(1,1)))
     #print(tabcorde)
     #print(validecorde(1,6))
     #test()
@@ -78,6 +71,15 @@ def essais_successifs():
 def nbtri(n):
     c=n-2
     return ((math.factorial(2*c))/((math.factorial(c+1))*(math.factorial(c))))
+
+def longueur(a,b):
+    xa=a[0]
+    ya=a[1]
+    xb=b[0]
+    yb=b[1]
+    u=xb-xa
+    v=yb-ya
+    return math.sqrt((u*u)+(v*v))
 
 #doit toujours etre a la fin
 if __name__ == '__main__':

@@ -58,7 +58,13 @@ def essais_successifs():
             if k==n-1 :
                 break
         if validecorde(i,k):
-            tabcorde.append((i,k))
+            if i<k :
+                tabcorde.append((i,k))
+            else :
+                tmp = k
+                k = i
+                i = tmp
+                tabcorde.append((i,k))
         k=0
         print(tabcorde)
 

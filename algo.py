@@ -3,18 +3,19 @@ import math
 n = 7
 #tabcorde= [(0,2),(0,3),(3,5)]
 tabcorde=[]
-polygone=[]
-#polygone=[(0,10),(0,20),(8,26),(15,26),(27,21),(22,12),(10,0)]
+#polygone=[]
+polygone=[(0,10),(0,20),(8,26),(15,26),(27,21),(22,12),(10,0)]
 
 def main():
-    figure()
-    print("7 : ",nbtri(7))
-    print(longueur(0,1))
+    #figure()
+    #print("7 : ",nbtri(7))
+    #print(longueur(0,2))
+    glouton()
     #print(tabcorde)
     #print(validecorde(1,6))
     #test()
     #essais_successifs()
-    #print(tabcorde)
+    print(tabcorde)
 
 def figure():
     n=int(input("Nombre de sommet de la figure : "))
@@ -93,6 +94,26 @@ def longueur(i,j):
     u=xb-xa
     v=yb-ya
     return math.sqrt((u*u)+(v*v))
+
+def corde_exterieur():
+    tablong={}
+    l=len(polygone)
+    i=0
+    while(len(tablong)!=l):
+        tablong[longueur(i,(i+2)%l)]=(i,(i+2)%l)
+        i+=1
+    return tablong
+
+def glouton():
+    tablong=corde_exterieur()
+    while(len(tabcorde)!=len(polygone)):
+        if(tablong=={}):
+            break
+        i=tablong[min(tablong)][0]
+        j=tablong[min(tablong)][1]
+        if(validecorde(i,j)):
+            tabcorde.append((i,j))
+        del tablong[min(tablong)]
 
 #doit toujours etre a la fin
 if __name__ == '__main__':

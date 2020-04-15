@@ -1,34 +1,26 @@
 
-PROC triangulation(ent nbCordesTracees, ent i) EST
+def triangulation(nbCordesTracees, i):
 
-  co On ne trace pas de corde issue du sommet i fco
-  co ENCORE POSSIBLE fco
-  SI i<NBSOMMETS - 3 ALORS
-     triangulation(nbCordesTracees, i+1 )
-  FSI
+    #On ne trace pas de corde issue du sommet i fco
+    # ENCORE POSSIBLE fco
+    if i<NBSOMMETS - 3 :
+        triangulation(nbCordesTracees, i+1 )
 
-  co On trace l'une des cordes issue de Si fco
-  POUR chaque corde j issue du sommet i FAIRE
-     co SATISFAISANT fco
-     SI valideCorde(i, j, nbCordesTracees) ALORS
+    # On trace l'une des cordes issue de Si fco
+    POUR chaque corde j issue du sommet i FAIRE
+    #SATISFAISANT fco
+    if valideCorde(i, j, nbCordesTracees) :
         longueurCourante=longueurCourante + longueurCorde(i,j)
-        SI longueurCourante < longueurOptimale ALORS
-           co ENREGISTRER fco
-           EnregistrerCorde(i,j)
-           co SOLTROUVEE fco
-           SI nbCordesTracees = NBSOMMETS - 3 ALORS
-              longueurOptimale = longueurCourante
-              EnregistrerLeTrace
-           SINON
-              co ENCORE POSSIBLE fco
-              SI i<NBSOMMETS - 3 ALORS
-                 triangulation(nbCordesTracees+1, i+1)
-              FSI
-           FSI
-        FSI
-        co DEFAIRE fco
+        if longueurCourante < longueurOptimale :
+            # ENREGISTRER fco
+            EnregistrerCorde(i,j)
+            # SOLTROUVEE fco
+            if nbCordesTracees = NBSOMMETS - 3 :
+                longueurOptimale = longueurCourante
+                EnregistrerLeTrace
+            else:
+                # ENCORE POSSIBLE fco
+                if i<NBSOMMETS - 3 :
+                    triangulation(nbCordesTracees+1, i+1)
+        # DEFAIRE fco
         longueurCourante=longueurCourante - longueurCorde(i,j)
-     FSI
-  FAIT
-
-  FIN

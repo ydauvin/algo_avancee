@@ -9,8 +9,10 @@ polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 def figure():
     n = int(input("Nombre de sommet de la figure : "))
     for i in range(0, n):
-        x = int(input("x = "))
-        y = int(input("y = "))
+        print("x" + str(i) + " = ", end='')
+        x = int(input())
+        print("y" + str(i) + " = ", end='')
+        y = int(input())
         polygone.append((x, y))
     print(polygone)
 

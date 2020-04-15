@@ -21,6 +21,7 @@ def test():
 
 def validecorde(i, j):
     """
+
     """
     i = i % n
     j = j % n

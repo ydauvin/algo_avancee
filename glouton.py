@@ -6,7 +6,7 @@ def corde_exterieur():
     tablong = {}
     l = len(polygone)
     i = 0
-    while len(tablong) != l:
+    while (len(tablong) != l):
         tablong[longueur(i, (i + 2) % l)] = (i, (i + 2) % l)
         i += 1
     return tablong

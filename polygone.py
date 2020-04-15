@@ -1,7 +1,7 @@
 import math
 
-nbSommets = 7
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+nbSommets = 4
+polygone = [(0, 10), (0, 20), (8, 26), (15, 26)]#, (27, 21), (22, 12), (10, 0)]
 tabcorde = []
 
 # polygone=[]
@@ -40,27 +40,19 @@ def nbtri(n):
 
 
 def valideCorde(i, j):
-    """
-
-    """
-    i = i % nbSommets
-    j = j % nbSommets
-    # pour rester entre 0 et n-1
-    l = len(tabcorde)
-    if (l >= nbSommets - 3):
-        # verification que toutes les cordes ne sont pas déjà tracées
+    i = i % nbSommets  # pour rester entre 0 et n-1
+    j = j % nbSommets  # pour rester entre 0 et n-1
+    l = nbCorde()
+    if (l >= nbSommets - 3): # verification que toutes les cordes ne sont pas déjà tracées
         return False
-    elif i == j:
-        # si les points sont identiques
+    elif i == j: # si les points sont identiques
         return False
-    if (i > j):
+    if (i > j): # permutation pour avoir j>i
         tmp = j
         j = i
         i = tmp
-    # permutation pour avoir j>i
 
-    if abs(i - j) == 1 or ((j + 1 + i) % nbSommets) == 0:
-        # si a coté (j+1+i) c'est pour quand ca reboucle
+    if abs(i - j) == 1 or (j==0 and i==nbSommets-1) or (i==0 and j==nbSommets-1): #test si i et j sont voisins
         return False
     if abs(i - j) > 1:
         for k in tabcorde:

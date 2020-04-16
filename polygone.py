@@ -33,11 +33,11 @@ def longueur(i, j):
     v = yb - ya
     return math.sqrt((u * u) + (v * v))
 
-""
+"""
 def nbtri(n):
     c = n - 2
     return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
-""
+"""
 
 def valideCorde(i, j):
 

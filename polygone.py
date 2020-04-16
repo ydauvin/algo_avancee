@@ -1,14 +1,15 @@
 import math
 
-nbSommets = 4
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26)]#, (27, 21), (22, 12), (10, 0)]
+nbSommets = 5
+polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21)]#, (22, 12), (10, 0)]
 tabcorde = []
 
 # polygone=[]
 # tabcorde= [(0,2),(0,3),(3,5)]
 
 def main():
-    figure()
+    #figure()
+    print(nbtri(5))
 
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))
@@ -32,11 +33,11 @@ def longueur(i, j):
     v = yb - ya
     return math.sqrt((u * u) + (v * v))
 
-"""
+""
 def nbtri(n):
     c = n - 2
     return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
-"""
+""
 
 
 def valideCorde(i, j):

@@ -8,12 +8,8 @@ def main():
     print(tabcorde)
 
 def essais_successifs():
-    i=0
-    while (nbCorde()<nbSommets-3):
+    for i in range(0,nbSommets):
         essais_successifs_etape(i)
-        i+=1
-        if(i==nbSommets):
-            i=0
         print(i)
 
 def essais_successifs_etape(i):

@@ -42,6 +42,8 @@ def nbtri(n):
 def valideCorde(i, j):
 
     l = len(tabcorde)
+    if (i==j):
+        return False
 
     # permutation pour avoir j>i
     if (i > j):
@@ -50,7 +52,7 @@ def valideCorde(i, j):
         i = tmp
 
     #si i et j sont des sommets adjacents, on retourne Faux
-    if(j==i+1) :
+    if(j==i+1 or j+i==nbSommets-1) :
         return False
     #On parcoure le tableau des cordes déjà tracées
     for k in range(0,l) :

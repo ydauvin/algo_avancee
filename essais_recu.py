@@ -13,6 +13,8 @@ def essais_successifs():
 
 def essais_successifs_etape(i):
     k=randint(0,nbSommets-1)
+    while(k==i):
+        k = randint(0, nbSommets - 1)
     if(valideCorde(i,k)):
         ajoutCorde(i, k)
 

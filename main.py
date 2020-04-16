@@ -29,8 +29,10 @@ def validecorde2(i, j):
         j = i
         i = tmp
 
+    #si i et j sont des sommets adjacents, on retourne Faux
+    if(j==i+1) :
+        return False
     #On parcoure le tableau des cordes déjà tracées
-
     for k in (0,l) :
         (a,b)=tabcorde[k]
 
@@ -40,11 +42,11 @@ def validecorde2(i, j):
             b = a
             a = tmp
 
-        #On vérifie si la corde est déjà tracée
+        #On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
         if (((i,j)==(a,b))or((i,j)==(b,a))) :
             return False
 
-        #on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées.
+        #on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
         if((a<i<b<j)or (i<a<j<b)) :
             return False
 

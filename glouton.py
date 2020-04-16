@@ -11,6 +11,10 @@ def corde_exterieur():
     while (len(tablong) != nbSommets):
         a=i
         b=(i + 2) % nbSommets
+        if (a > b):  # permutation pour avoir j>i
+            tmp = b
+            b = a
+            a = tmp
         tablong[a,b]=longueur(a, b)
         i += 1
     return tablong
@@ -36,9 +40,9 @@ def glouton_etape(tab):
     tab = valideCordeGlouton(tab)
     print(tab)
     min=-1
-    for i in tab.values():
-        if min==-1 or i<min:
-            min=i
+    for k in tab.values():
+        if min==-1 or k<min:
+            min=k
     i=find_key(tab,min)[0]
     j=find_key(tab,min)[1]
     ajoutCorde(i,j)

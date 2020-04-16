@@ -39,31 +39,39 @@ def nbtri(n):
     return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
 ""
 
-
 def valideCorde(i, j):
-    i = i % nbSommets  # pour rester entre 0 et n-1
-    j = j % nbSommets  # pour rester entre 0 et n-1
-    l = nbCorde()
-    if (l >= nbSommets - 3): # verification que toutes les cordes ne sont pas déjà tracées
-        return False
-    elif i == j: # si les points sont identiques
-        return False
-    if (i > j): # permutation pour avoir j>i
+
+    l = len(tabcorde)
+
+    # permutation pour avoir j>i
+    if (i > j):
         tmp = j
         j = i
         i = tmp
 
-    if abs(i - j) == 1 or (j==0 and i==nbSommets-1) or (i==0 and j==nbSommets-1): #test si i et j sont voisins
+    #si i et j sont des sommets adjacents, on retourne Faux
+    if(j==i+1) :
         return False
-    if abs(i - j) > 1:
-        for k in tabcorde:
-            if (k[0] == i and k[1] == j):
-                return False
-            elif (k[0] < i and k[1] > i) and (j < k[0] or j > k[1]):
-                return False
-            elif (k[0] < j and k[1] > j) and (i < k[0] or i > k[1]):
-                return False
+    #On parcoure le tableau des cordes déjà tracées
+    for k in range(0,l) :
+        (a,b)=tabcorde[k]
+
+        #si a >b, on permute les valeurs de a et b.
+        if (a > b):
+            tmp = b
+            b = a
+            a = tmp
+
+        #On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
+        if (((i,j)==(a,b))or((i,j)==(b,a))) :
+            return False
+
+        #on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
+        if((a<i<b<j)or (i<a<j<b)) :
+            return False
+
     return True
+
 
 def ajoutCorde(i,j):
     if (i > j): # permutation pour avoir j>i

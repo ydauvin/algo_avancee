@@ -10,7 +10,6 @@ def main():
 def essais_successifs():
     for i in range(0,nbSommets):
         essais_successifs_etape(i)
-        print(i)
 
 def essais_successifs_etape(i):
     k=randint(0,nbSommets-1)

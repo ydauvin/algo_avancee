@@ -5,11 +5,11 @@ polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 tabcorde = []
 
 # polygone=[]
-# tabcorde= [(0,2),(0,3),(3,5)]
+#tabcorde= [(0,2),(0,3),(3,5)]
 
 def main():
-    #figure()
-    print(nbtri(5))
+    figure()
+    #print(valideCorde(6,2))
 
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))
@@ -66,6 +66,10 @@ def valideCorde(i, j):
     return True
 
 def ajoutCorde(i,j):
+    if (i > j): # permutation pour avoir j>i
+        tmp = j
+        j = i
+        i = tmp
     tabcorde.append((i, j))
 
 def nbCorde():

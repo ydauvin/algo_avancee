@@ -1,10 +1,11 @@
 # Mini-projet d'algorithmique avancée
 
-Ces differents fichier permettent de trouver la meilleur triangulation d'un polygone convexe
+Ces fichiers sont codés en python. 
+Ces différents fichier permettent de trouver la triangulation minimale d'un polygone convexe
 
 ## Définition du polygone
 
-Avant d'executer les autres fichiers, il est necessaire de definir le polygone.
+Avant d'exécuter les autres fichiers, il est nécessaire de definir le polygone.
 Pour cela lancer le fichier *polygone.py*
 
 Le résultat peut etre par exemple
@@ -25,18 +26,18 @@ y5 = 12
 x6 = 10
 y6 = 0
 ```
-Les commentaires ligne 3 et 4 sont un exemple de donne un exemple de polygone
-qui peut etre utilisé si les lignes 6 et 7
+Les commentaires ligne 3 et 4 du fichier sont un exemple de polygone
+qui peut etre utilisé si les lignes 6 et 7 sont mises en commentaire.
 
 ## Essais successifs
 
-Pour executer un algorithme de recherche de triangulation par essai successif
+Pour exécuter un algorithme de recherche de triangulation par essai successif
 il suffit de lancer *essais_successifs.py*
 
 ### Programmation dynamique
 
-Pour executer un algorithme de recherche de triangulation a l'aide de programmation dynamique
-il faut executer *dynamique.py*
+Pour exécuter un algorithme de recherche de triangulation à l'aide de programmation dynamique
+il faut exécuter *dynamique.py*
 
 ## Méthode glouton
 

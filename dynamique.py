@@ -8,7 +8,13 @@ tabcorde = []
 
 n=nbSommets
 
-
+T = []
+tab = []
+for k in range(0,n):
+    for i in range(0, n):
+        tab.append(0)
+    T.append(tab)
+    tab=[]
 
 def main():
     C=[0,5,3,8,3,8,64,6]
@@ -26,6 +32,14 @@ def main():
 def longueurcorde(i,j) :
     return C[i][j]
 
+def longueur(T) :
+    lenT=len(T)
+    l=0
+    for i in(0,lenT):
+        l=l+longueurcorde(T[i])
+
+
+
 def Triangulation_dynamique():
 
     for i in (n,0):
@@ -40,10 +54,10 @@ def Triangulation_dynamique():
                 ok2 = False
                 longueurCourante=0
                 if k>1 :
-                    longueurCourante = longueurcorde(i, i + k%n)  + longueur(T(i, k + 1%n))
+                    longueurCourante = longueurcorde(i, i + k%n)  + longueur(T[i][k + 1%n])
                     ok1=True
                 if k<n-2 and valideCorde(i+k%n,i+t-1%n):
-                    longueurCourante = longueurcorde(i + k %n, i + t - 1%n) + longueur(T(i + k%n, t - k%n))
+                    longueurCourante = longueurcorde(i + k %n, i + t - 1%n) + longueur(T[i+k%n][t - k%n])
                     ok2=True
                 # on regarde si la longueur qu'on vient de calculer est plus petite que la longueur optimale actuelle.
                 if longueurCourante < longueuropt:
@@ -52,12 +66,17 @@ def Triangulation_dynamique():
                     okCorde1=ok1
                     okCorde2=ok2
             if(okCorde1):
-                T[i][t]=T[i][t]+C[i,i+kmin]
-                T[i][t] = T[i][t] + T[i][kmin+1]
-
+                tab=T[i][t]
+                tab.append(C[i][i+kmin])
+                tab.append(T[i][kmin+1])
+                T[i][t]=tab
             if (okCorde2):
-                T[i][t] = T[i][t] + C[i+kmin,t-1]
-                T[i][t] = T[i][t] + T[i+kmin][t-kmin]
+                tab=T[i][t]
+                tab.append(C[i+kmin][t-1])
+                tab.append(T[i+kmin][t-kmin])
+                T[i][t] =tab
+
+
 # doit toujours etre a la fin
 
 if __name__ == '__main__':

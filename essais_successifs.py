@@ -1,7 +1,5 @@
 from random import randint
 from polygone import *
-cptetape=0
-cptgrs=0
 C = []
 
 def main():

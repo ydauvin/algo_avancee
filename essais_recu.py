@@ -8,7 +8,7 @@ def main():
     print(C)
     initVecteur()
     print(C)
-    essais_successifs()
+   # essais_successifs()
     print(tabcorde)
 
 def essais_successifs():
@@ -53,7 +53,7 @@ def initVecteur():
     for i in range(0,nbSommets):
         for j in range(i+1,(nbSommets+i)):
             #  print("j =",j%nbSommets)
-            if(i+1!=j%nbSommets and j%nbSommets+1!=i and voisins(i,j)!=True):
+            if(voisins(i,j)!=True):
                 a=i
                 b=j%nbSommets
                 if a > b:
@@ -68,32 +68,6 @@ def present(k,tab):
         if i==k:
             return True
     return False
-
-
-
-def triangulation(nbCordesTracees, i):
-    # On ne trace pas de corde a l'etape i fco
-    # ENCORE POSSIBLE fco
-    if i < nbCordesTracables :
-        triangulation(nbCordesTracees, i+1 )
-
-    # on trace la corde a l'etape i si elle est valide fco
-    # SATISFAISANT fco
-    if valideCorde(C[i].s1, C[i].s2, nbCordesTracees) :
-        longueurCourante=longueurCourante + C[i].longueur
-        if longueurCourante < longueurOptimale :
-        #ENREGISTRER fco
-            EnregistrerCorde(C[i])
-        # SOLTROUVEE fco
-            if nbCordesTracees == nbSommets - 3 :
-                longueurOptimale = longueurCourante
-                EnregistrerLeTrace
-            else:
-            # ENCORE POSSIBLE fco
-                if i < nbCordesTracables :
-                    triangulation(nbCordesTracees+1, i+1)
-    #DEFAIRE fco
-    longueurCourante=longueurCourante - C[i].longueur
 
 if __name__ == '__main__':
     main()

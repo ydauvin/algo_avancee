@@ -1,16 +1,20 @@
 import math
 
-nbSommets = 5
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21)]#, (22, 12), (10, 0)]
+nbSommets = 7
+polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 tabcorde = []
 
 
 # polygone=[]
 # tabcorde= [(0,2),(0,3),(3,5)]
 def main():
-    figure()
-    print(valideCorde(3,1))
-
+    #figure()
+    print(valideCorde(0, 1, [(0,5)]))
+    print(valideCorde(1, 6, [(2,5)]))
+    print(valideCorde(5, 5, [ ]))
+    print(valideCorde(3, 5, [(0,3), (0,5)]))
+    print(valideCorde(6, 1, [(0,3)]))
+    print(valideCorde(6, 1, [ ]))
 
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))

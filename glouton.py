@@ -21,7 +21,9 @@ def corde_exterieur():
 
 def glouton():
     tab = corde_exterieur()
+    print(tab)
     while (len(tabcorde)!=nbSommets-3):
+        print("Corde tracé",tabcorde)
         glouton_etape(tab)
         last = tabcorde[-1]
         i = last[0]
@@ -31,13 +33,14 @@ def glouton():
             del tab[(last[1],last[0])]
         retirerMax = max(last[0],last[1])
         retirerMin = min(last[0], last[1])
-        if valideCorde(retirerMax, retirerMax - 3):
+        if valideCorde(retirerMax, retirerMax - 3, tabcorde):
             tab[retirerMax, (retirerMax - 3)%nbSommets] = longueur(retirerMax, (retirerMax - 3)%nbSommets)
-        if valideCorde(retirerMin, retirerMin + 3):
+        if valideCorde(retirerMin, retirerMin + 3, tabcorde):
             tab[retirerMin, retirerMin + 3] = longueur(retirerMin, retirerMin + 3)
 
 def glouton_etape(tab):
     tab = valideCordeGlouton(tab)
+    print("Corde possible",tab)
     min=-1
     for k in tab.values():
         if min==-1 or k<min:
@@ -49,7 +52,7 @@ def glouton_etape(tab):
 def valideCordeGlouton(tab):
     tabtmp=tab.copy()
     for i in tab.keys():
-        if valideCorde(i[0],i[1])==False:
+        if valideCorde(i[0],i[1],tabcorde)==False:
             del tabtmp[(i[0],i[1])]
     return tabtmp
 

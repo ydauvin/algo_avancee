@@ -1,10 +1,15 @@
 from orca.punctuation_settings import infinity
-from main import *
 from polygone import *
+
 T=[]
 for i in range (0,n) :
     for t in range (0,n) :
         T[i][t]=0
+
+
+def main():
+
+
 def longueurcorde(i,j) :
     return C[i][j]
 
@@ -62,3 +67,6 @@ def Triag():
 
     #return Tmin
 
+# doit toujours etre a la fin
+if __name__ == '__main__':
+    main()

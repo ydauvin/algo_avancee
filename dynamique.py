@@ -1,25 +1,30 @@
 from orca.punctuation_settings import infinity
 from polygone import *
+from essais_recu import *
+
+nbSommets = 7
+polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+tabcorde = []
+
+n=nbSommets
 
 T=[]
 for i in range (0,n) :
     for t in range (0,n) :
         T[i][t]=0
 
-
-def main():
-
-
 def longueurcorde(i,j) :
     return C[i][j]
 
-def Triag():
+def Triangulation_dynamique():
 
     for i in (n,0):
         for t in (4, n + 1):
             longueuropt = infinity
             kmin=0
-            ok=False
+            okCorde1=False
+            okCorde2=False
+
             for k in (1,t-1):
                 ok1 = False
                 ok2 = False
@@ -34,39 +39,16 @@ def Triag():
                 if longueurCourante < longueuropt:
                     longueuropt = longueurCourante
                     kmin=k
-                    ok=ok1&ok2
-            if(ok):
+                    okCorde1=ok1
+                    okCorde2=ok2
+            if(okCorde1):
                 T[i][t]=T[i][t]+C[i,i+kmin]
                 T[i][t] = T[i][t] + T[i][kmin+1]
+
+            if (okCorde2):
                 T[i][t] = T[i][t] + C[i+kmin,t-1]
                 T[i][t] = T[i][t] + T[i+kmin][t-kmin]
-
-
-
-#
-#def T(i,t):
-    longueuropt=-1
-#
-    #  for k in (1,t-1) :
-    #
-    #           longueurCourante=longueurcorde(i,i+k)+longueurcorde(i+k,i+t-1)+T(i,k+1)+T(i+k,t-k)
-    #
-    #           #on regarde si la longueur qu'on vient de calculer est plus petite que la longueur optimale actuelle.
-    #           if longueurCourante< longueuropt or longueuropt==-1 :
-    #               longueuropt=longueurCourante
-    #return longueuropt
-
-#def Triangulation_dynamique():
-    #   Tmin=-1
-    #
-    #for t in (4,n+1):
-    #   for i in (0,n):
-    #       T=T(i,t)
-    #       if T<Tmin or Tmin==-1 :
-    #           Tmin=T
-
-    #return Tmin
-
 # doit toujours etre a la fin
+
 if __name__ == '__main__':
     main()

@@ -10,26 +10,10 @@ C=[]
 # tabcorde= [(0,2),(0,3),(3,5)]
 
 def main():
-    #figure()
-    print("essai",longueur(0,2)+longueur(0,3))
-    print(longueur(1,4)+longueur(1,3))
-    print("glouton",longueur(4,2)+longueur(0,2))
-    print(longueur(3,0)+longueur(3,1))
-    print(longueur(4,1)+longueur(4,2))
-"""
-    print(longueur(1,5)+longueur(1,4)+longueur(1,3))
-    print(longueur(1,5)+longueur(5,3)+longueur(2,4))
-    print(longueur(2,0)+longueur(0,3)+longueur(3,5))
-    print(longueur(5,1)+longueur(1,4)+longueur(4,2))
-
-    print(longueur(0,2)+longueur(2,5)+longueur(5,3))
-    print(longueur(4,0)+longueur(0,3)+longueur(3,1))
-    print(longueur(2,0)+longueur(0,4)+longueur(4,2))
-
-    print(longueur(5,1)+longueur(1,3)+longueur(3,5))
-    print(longueur(4,1)+longueur(1,3))
-    print(longueur(0,2)+longueur(0,3))"""
-
+    figure()
+    print("le nombre de sommet est :")
+    print(nbSommets)
+    print("le polygone est :")
 
 
 def initVecteur():

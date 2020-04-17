@@ -35,7 +35,7 @@ il suffit de lancer *essais_successifs.py*
 
 ### Programmation dynamique
 
-Explain what these tests test and why
+Pour executer un algorithme de recherche de triangulation a l'aide de programmation 
 
 ```
 Give an example

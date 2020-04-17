@@ -1,19 +1,18 @@
 import math
 
-nbSommets = 7
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+#nbSommets = 7
+#polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+
+nbSommets = 0
+polygone = []
 
 tabcorde = []
 C=[]
 
-# polygone=[]
-# tabcorde= [(0,2),(0,3),(3,5)]
-
 def main():
     figure()
-    print("le nombre de sommet est :")
-    print(nbSommets)
-    print("le polygone est :")
+    print("le nombre de sommet est :",nbSommets)
+    print("le polygone est :",polygone)
 
 
 def initVecteur():

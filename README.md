@@ -1,6 +1,6 @@
 # Mini-projet d'algorithmique avancée
 
-One Paragraph of project description goes here
+Ces differents code permettent de trouver 
 
 ## Getting Started
 

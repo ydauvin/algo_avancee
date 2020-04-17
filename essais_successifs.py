@@ -5,7 +5,6 @@ def main():
     tabcorde = essais_successifs()
     print(tabcorde)
 
-
 def essais_successifs():
     i = 0
     tabcordetmp = []

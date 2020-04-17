@@ -33,6 +33,28 @@ def main():
 
 
 
+def initVecteur():
+    for i in range(0,nbSommets):
+        for j in range(i+1,(nbSommets+i)):
+            #  print("j =",j%nbSommets)
+            if(voisins(i,j)!=True):
+                a=i
+                b=j%nbSommets
+                if a > b:
+                    tmp = b
+                    b = a
+                    a = tmp
+                if(present((a,b,longueur(a,b)),C)==False):
+                    C.append((a,b,longueur(a,b)))
+
+def present(k,tab):
+    for i in tab:
+        if i==k:
+            return True
+    return False
+
+
+
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))
     for i in range(0, nbSommets):

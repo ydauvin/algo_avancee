@@ -4,8 +4,6 @@ def main():
     glouton()
     print(tabcorde)
 
-    print(longueur(tabcorde[0][0], tabcorde[0][1]) + longueur(tabcorde[1][0], tabcorde[1][1]) + longueur(tabcorde[2][0], tabcorde[2][1]))
-
 def corde_exterieur():
     #initialisation des variables
     tablong = {}

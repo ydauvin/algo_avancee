@@ -19,20 +19,22 @@ def main():
     print(T)
 
 def longueurcorde(i,j) :
-    return C[i][j][3]
+    return longueur(i,j)
 
 def longueur_Tab(T) :
+    if(T==0) :
+        return 0
     lenT=len(T)
     l=0
     for i in(0,lenT):
-        l=l+longueurcorde(T[i])
-
-
-
+        a=T[i][0]
+        b=T[i][1]
+        l=l+longueurcorde(a,b)
+    return l
 def Triangulation_dynamique():
 
-    for i in (n,0):
-        for t in (4, n + 1):
+    for i in (n-1,0):
+        for t in (3, n):
             longueuropt = infinity
             kmin=0
             okCorde1=False
@@ -43,10 +45,10 @@ def Triangulation_dynamique():
                 ok2 = False
                 longueurCourante=0
                 if k>1 :
-                    longueurCourante = longueurcorde(i, i + k%n)  + longueur_Tab(T[i][k + 1%n])
+                    longueurCourante = longueur(i,(i + k)%n)  + longueur_Tab(T[i][(k + 1)%n])
                     ok1=True
                 if k<n-2 :# and valideCorde(i+k%n,i+t-1%n):
-                    longueurCourante = longueurcorde(i + k %n, i + t - 1%n) + longueur_Tab(T[i+k%n][t - k%n])
+                    longueurCourante = longueur((i + k)%n,( i + t - 1)%n) + longueur_Tab(T[(i+k)%n][(t - k)%n])
                     ok2=True
                 # on regarde si la longueur qu'on vient de calculer est plus petite que la longueur optimale actuelle.
                 if longueurCourante < longueuropt:
@@ -55,15 +57,15 @@ def Triangulation_dynamique():
                     okCorde1=ok1
                     okCorde2=ok2
             if(okCorde1):
-                tab=T[i][t]
-                tab.append(C[i][i+kmin])
-                tab.append(T[i][kmin+1])
-                T[i][t]=tab
+                tab=[T[i%n][t%n]]
+                tab.append([i%n,(i+kmin)%n])
+                tab.extend([T[i%n][(kmin+1)%n]])
+                T[i%n][t%n]=tab
             if (okCorde2):
-                tab=T[i][t]
-                tab.append(C[i+kmin][t-1])
-                tab.append(T[i+kmin][t-kmin])
-                T[i][t] =tab
+                tab=[T[i%n][t%n]]
+                tab.append([(i+kmin)%n,(t-1)%n])
+                tab.extend([T[(i+kmin)%n][(t-kmin)%n]])
+                T[i%n][t%n] =tab
 
 
 # doit toujours etre a la fin

@@ -6,7 +6,7 @@ import math
 nbSommets = 6
 polygone = [(0, 0), (0, 20), (7, 3), (6, 8),(2, 9),(1, 7)]
 tabcorde = []
-
+C=[]
 
 # polygone=[]
 # tabcorde= [(0,2),(0,3),(3,5)]

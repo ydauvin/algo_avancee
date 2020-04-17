@@ -1,20 +1,37 @@
 import math
 
-nbSommets = 7
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+#nbSommets = 7
+#polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+
+nbSommets = 6
+polygone = [(0, 0), (0, 20), (7, 3), (6, 8),(2, 9),(1, 7)]
 tabcorde = []
 
 
 # polygone=[]
 # tabcorde= [(0,2),(0,3),(3,5)]
+
 def main():
     #figure()
-    print(valideCorde(0, 1, [(0,5)]))
-    print(valideCorde(1, 6, [(2,5)]))
-    print(valideCorde(5, 5, [ ]))
-    print(valideCorde(3, 5, [(0,3), (0,5)]))
-    print(valideCorde(6, 1, [(0,3)]))
-    print(valideCorde(6, 1, [ ]))
+    print(longueur(0,2)+longueur(0,3)+longueur(0,4))
+    print(longueur(5,1)+longueur(5,2)+longueur(5,3))
+    print(longueur(4,0)+longueur(4,1)+longueur(4,2))
+    print(longueur(3,5)+longueur(3,0)+longueur(3,1))
+    print(longueur(2,0)+longueur(2,5)+longueur(2,4))
+
+    print(longueur(1,5)+longueur(1,4)+longueur(1,3))
+    print(longueur(1,5)+longueur(5,3)+longueur(2,4))
+    print(longueur(2,0)+longueur(0,3)+longueur(3,5))
+    print(longueur(5,1)+longueur(1,4)+longueur(4,2))
+
+    print(longueur(0,2)+longueur(2,5)+longueur(5,3))
+    print(longueur(4,0)+longueur(0,3)+longueur(3,1))
+    print(longueur(2,0)+longueur(0,4)+longueur(4,2))
+
+    print(longueur(5,1)+longueur(1,3)+longueur(3,5))
+    print(longueur(0,4)+longueur(4,1)+longueur(1,3))
+
+
 
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))
@@ -28,6 +45,8 @@ def figure():
 
 
 def longueur(i, j):
+    i=i%nbSommets
+    j=j%nbSommets
     a = polygone[i]
     b = polygone[j]
     xa = a[0]
@@ -39,11 +58,11 @@ def longueur(i, j):
     return math.sqrt((u * u) + (v * v))
 
 
-"""
+""
 def nbtri(n):
     c = n - 2
     return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
-"""
+""
 
 
 def valideCorde(i, j,tabcorde):

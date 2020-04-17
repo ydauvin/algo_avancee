@@ -1,29 +1,34 @@
-from main import *
 from polygone import *
 
 def main():
     glouton()
     print(tabcorde)
 
+    print(longueur(tabcorde[0][0], tabcorde[0][1]) + longueur(tabcorde[1][0], tabcorde[1][1]) + longueur(tabcorde[2][0], tabcorde[2][1]))
+
 def corde_exterieur():
+    #initialisation des variables
     tablong = {}
     i = 0
+
     while (len(tablong) != nbSommets):
+    #tant que toutes les cordes extériers n'ont pas été tracées
         a=i
         b=(i + 2) % nbSommets
-        if (a > b):  # permutation pour avoir j>i
+        if (a > b):
+        #permutation pour avoir a < b
             tmp = b
             b = a
             a = tmp
         tablong[a,b]=longueur(a, b)
+        #ajout dans le dictionaire de tout les valeurs
         i += 1
     return tablong
 
 def glouton():
     tab = corde_exterieur()
-    print(tab)
+
     while (len(tabcorde)!=nbSommets-3):
-        print("Corde tracé",tabcorde)
         glouton_etape(tab)
         last = tabcorde[-1]
         i = last[0]
@@ -40,7 +45,6 @@ def glouton():
 
 def glouton_etape(tab):
     tab = valideCordeGlouton(tab)
-    print("Corde possible",tab)
     min=-1
     for k in tab.values():
         if min==-1 or k<min:

@@ -1,6 +1,4 @@
 infinity=9999999999999999999
-
-from essais_successifs import *
 from polygone import *
 
 n=nbSommets

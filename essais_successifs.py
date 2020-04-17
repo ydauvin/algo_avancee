@@ -18,13 +18,12 @@ def essais_successifs():
             longueurCourante = longueurCourante + C[i][2]
             tabcordetmp.append((C[i][0], C[i][1]))
         i=(i+1)%nbSommets
-    longueurOptimale=longueurCourante
     longueurCourante=0
     tab=[]
     nbCorde=len(C)
     i=0
     while(i<nbCorde):
-        tab=essais_successifs_etape(i,longueurCourante,longueurOptimale, tab)
+        tab=essais_successifs_etape(i,longueurCourante, tab)
         new=longueurCorde(tab)
         act=longueurCorde(tabcordetmp)
         if(new<act and len(tab)==nbSommets-3):
@@ -47,13 +46,13 @@ def initVecteur():
                 if(present((a,b,longueur(a,b)),C)==False):
                     C.append((a,b,longueur(a,b)))
 
-def essais_successifs_etape(i, longueurCourante, longueurOptimale,tab):
+def essais_successifs_etape(i, longueurCourante,tab):
     print("je suis dans etape")
     if valideCorde(C[i][0], C[i][1],tab) :
         longueurCourante = longueurCourante + C[i][2]
         tab.append((C[i][0], C[i][1]))
         j=(i+1)%len(C)
-        essais_successifs_etape(j, longueurCourante, longueurOptimale,tab)
+        essais_successifs_etape(j, longueurCourante,tab)
     return tab
 
 def present(k,tab):

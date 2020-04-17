@@ -3,7 +3,7 @@ import math
 # nbSommets = 7
 # polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 
-nbSommets = 0
+nbSommets = 5
 polygone = []
 tabcorde = []
 C = []

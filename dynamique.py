@@ -8,13 +8,12 @@ T = []
 tab = []
 for k in range(0,n):
     for i in range(0, n):
-        tab.append(0)
+        tab.append([])
     T.append(tab)
     tab=[]
 
 def main():
-    print(T)
-    initVecteur()
+
     Triangulation_dynamique()
     print(T)
 
@@ -22,7 +21,7 @@ def longueurcorde(i,j) :
     return longueur(i,j)
 
 def longueur_Tab(T) :
-    if(T==0) :
+    if(T==[]) :
         return 0
     lenT=len(T)
     l=0
@@ -31,6 +30,7 @@ def longueur_Tab(T) :
         b=T[i][1]
         l=l+longueurcorde(a,b)
     return l
+
 def Triangulation_dynamique():
 
     for i in (n-1,0):
@@ -47,7 +47,7 @@ def Triangulation_dynamique():
                 if k>1 :
                     longueurCourante = longueur(i,(i + k)%n)  + longueur_Tab(T[i][(k + 1)%n])
                     ok1=True
-                if k<n-2 :# and valideCorde(i+k%n,i+t-1%n):
+                if k<n-2 and validecorde((i+k)%n,(i+t-1)%n):
                     longueurCourante = longueur((i + k)%n,( i + t - 1)%n) + longueur_Tab(T[(i+k)%n][(t - k)%n])
                     ok2=True
                 # on regarde si la longueur qu'on vient de calculer est plus petite que la longueur optimale actuelle.

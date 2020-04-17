@@ -120,6 +120,8 @@ def valideCorde(i, j,tabcorde):
 
     return True
 
+def validecorde(i, j):
+    return valideCorde(i,j,tabcorde)
 
 def ajoutCorde(i, j):
     if (i > j):  # permutation pour avoir j>i

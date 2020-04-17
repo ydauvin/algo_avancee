@@ -94,7 +94,7 @@ def valideCorde(i, j, tabcorde):
         # On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
         if ((i, j) == (a, b)) or ((i, j) == (b, a)):
             return False
-        # on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
+        # on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. Si oui, on retourne Faux
         if (a < i < b < j) or (i < a < j < b):
             return False
     return True

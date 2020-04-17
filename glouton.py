@@ -38,7 +38,6 @@ def glouton():
 
 def glouton_etape(tab):
     tab = valideCordeGlouton(tab)
-    print(tab)
     min=-1
     for k in tab.values():
         if min==-1 or k<min:

@@ -4,12 +4,13 @@ nbSommets = 7
 polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 tabcorde = []
 
-# polygone=[]
-#tabcorde= [(0,2),(0,3),(3,5)]
 
+# polygone=[]
+# tabcorde= [(0,2),(0,3),(3,5)]
 def main():
     figure()
-    #print(valideCorde(6,2))
+    print(valideCorde(3,1))
+
 
 def figure():
     nbSommets = int(input("Nombre de sommet de la figure : "))
@@ -33,57 +34,72 @@ def longueur(i, j):
     v = yb - ya
     return math.sqrt((u * u) + (v * v))
 
+
 """
 def nbtri(n):
     c = n - 2
     return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
 """
 
-def valideCorde(i, j):
 
-    l = len(tabcorde)
-    if (i==j):
+def valideCorde(i, j):
+    nbCorde = len(tabcorde)
+    if i == j:
         return False
 
     # permutation pour avoir j>i
-    if (i > j):
+    if i > j:
         tmp = j
         j = i
         i = tmp
 
-    #si i et j sont des sommets adjacents, on retourne Faux
-    if(j==i+1 or j+i==nbSommets-1) :
+    # si i et j sont des sommets adjacents, on retourne Faux
+    if voisins(i,j):
         return False
-    #On parcoure le tableau des cordes déjà tracées
-    for k in range(0,l) :
-        (a,b)=tabcorde[k]
+    # On parcoure le tableau des cordes déjà tracées
+    for k in range(0, nbCorde):
+        (a, b) = tabcorde[k]
 
-        #si a >b, on permute les valeurs de a et b.
-        if (a > b):
+        # si a >b, on permute les valeurs de a et b.
+        if a > b:
             tmp = b
             b = a
             a = tmp
 
-        #On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
-        if (((i,j)==(a,b))or((i,j)==(b,a))) :
+        # On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
+        if ((i, j) == (a, b)) or ((i, j) == (b, a)):
             return False
 
-        #on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
-        if((a<i<b<j)or (i<a<j<b)) :
+        # on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
+        if (a < i < b < j) or (i < a < j < b):
             return False
 
     return True
 
 
-def ajoutCorde(i,j):
-    if (i > j): # permutation pour avoir j>i
+def ajoutCorde(i, j):
+    if (i > j):  # permutation pour avoir j>i
         tmp = j
         j = i
         i = tmp
     tabcorde.append((i, j))
 
-def nbCorde():
-    return len(tabcorde)
+
+def voisins(i, j):
+    i = i % nbSommets
+    j = j % nbSommets
+    if i > j:
+        tmp = j
+        j = i
+        i = tmp
+
+    if j == i + 1:
+        return True
+    elif i == 0 and j == nbSommets - 1:
+        return True
+    else:
+        return False
+
 
 if __name__ == '__main__':
     main()

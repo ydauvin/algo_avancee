@@ -21,12 +21,6 @@ def test():
             if valideCorde(y, p):
                 print("i :", y, "| j :", p)
 
-def triangulation(nbCordeTracee, i) :
-    longueur = 0
-    if (valideCorde(C[i][0],C[i][1])):
-        longueur = longueur+C[2]
-
-
 # doit toujours etre a la fin
 if __name__ == '__main__':
     main()

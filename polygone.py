@@ -1,7 +1,7 @@
 import math
 
-nbSommets = 7
-polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+nbSommets = 5
+polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21)]#, (22, 12), (10, 0)]
 tabcorde = []
 
 
@@ -42,7 +42,7 @@ def nbtri(n):
 """
 
 
-def valideCorde(i, j):
+def valideCorde(i, j,tabcorde):
     nbCorde = len(tabcorde)
     if i == j:
         return False

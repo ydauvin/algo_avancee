@@ -22,7 +22,7 @@ def initVecteur():
                 # si i et j ne sont pas adjacents
                 a = i
                 b = j % nbSommets
-                if a > b
+                if a > b :
                 # permutation pour avoir b<a
                     tmp = b
                     b = a

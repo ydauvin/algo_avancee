@@ -1,6 +1,6 @@
-from orca.punctuation_settings import infinity
+infinity=9999999999999999999
 from polygone import *
-from essais_recu import *
+from essais_successifs import *
 
 nbSommets = 7
 polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
@@ -8,10 +8,20 @@ tabcorde = []
 
 n=nbSommets
 
-T=[]
-for i in range (0,n) :
-    for t in range (0,n) :
-        T[i][t]=0
+
+
+def main():
+    C=[0,5,3,8,3,8,64,6]
+    T = []
+    t = []
+    for k in range(0,n):
+        for i in range(0, n):
+            t.append(0)
+        T.append(t)
+        t = []
+    print(T)
+    T[0][2] = C[5:7]
+    print(T)
 
 def longueurcorde(i,j) :
     return C[i][j]

@@ -1,43 +1,47 @@
 import math
 
-#nbSommets = 7
-#polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
+# nbSommets = 7
+# polygone = [(0, 10), (0, 20), (8, 26), (15, 26), (27, 21), (22, 12), (10, 0)]
 
 nbSommets = 0
 polygone = []
-
 tabcorde = []
-C=[]
+C = []
+
 
 def main():
     figure()
-    print("le nombre de sommet est :",nbSommets)
-    print("le polygone est :",polygone)
+    print("le nombre de sommet est :", nbSommets)
+    print("le polygone est :", polygone)
 
 
 def initVecteur():
-    for i in range(0,nbSommets):
-        for j in range(i+1,(nbSommets+i)):
-            #  print("j =",j%nbSommets)
-            if(voisins(i,j)!=True):
-                a=i
-                b=j%nbSommets
-                if a > b:
+    for i in range(0, nbSommets):
+        for j in range(i + 1, (nbSommets + i)):
+            if not voisins(i, j):
+                # si i et j ne sont pas adjacents
+                a = i
+                b = j % nbSommets
+                if a > b
+                # permutation pour avoir b<a
                     tmp = b
                     b = a
                     a = tmp
-                if(present((a,b,longueur(a,b)),C)==False):
-                    C.append((a,b,longueur(a,b)))
+                if not present((a, b, longueur(a, b)), C):
+                # si la corde n'est pas déjà ajouté
+                    C.append((a, b, longueur(a, b)))
 
-def present(k,tab):
+
+def present(k, tab):
+# parcours de tab pour savoir si k est dedans
     for i in tab:
-        if i==k:
+        if i == k:
             return True
     return False
 
 
-
 def figure():
+    # création du polygone
     nbSommets = int(input("Nombre de sommet de la figure : "))
     for i in range(0, nbSommets):
         print("x" + str(i) + " = ", end='')
@@ -45,12 +49,12 @@ def figure():
         print("y" + str(i) + " = ", end='')
         y = int(input())
         polygone.append((x, y))
-    print(polygone)
 
 
 def longueur(i, j):
-    i=i%nbSommets
-    j=j%nbSommets
+    # calcul de la longueur entre les points i et j
+    i = i % nbSommets
+    j = j % nbSommets
     a = polygone[i]
     b = polygone[j]
     xa = a[0]
@@ -62,14 +66,7 @@ def longueur(i, j):
     return math.sqrt((u * u) + (v * v))
 
 
-""
-def nbtri(n):
-    c = n - 2
-    return ((math.factorial(2 * c)) / ((math.factorial(c + 1)) * (math.factorial(c))))
-""
-
-
-def valideCorde(i, j,tabcorde):
+def valideCorde(i, j, tabcorde):
     nbCorde = len(tabcorde)
     if i == j:
         return False
@@ -81,8 +78,9 @@ def valideCorde(i, j,tabcorde):
         i = tmp
 
     # si i et j sont des sommets adjacents, on retourne Faux
-    if voisins(i,j):
+    if voisins(i, j):
         return False
+
     # On parcoure le tableau des cordes déjà tracées
     for k in range(0, nbCorde):
         (a, b) = tabcorde[k]
@@ -96,18 +94,18 @@ def valideCorde(i, j,tabcorde):
         # On vérifie si la corde est déjà tracée. Si elle l'est déjà, on retourne Faux
         if ((i, j) == (a, b)) or ((i, j) == (b, a)):
             return False
-
         # on vérifie que la corde (i,j) ne coupe pas les cordes déjà tracées. SI oui, on retourne Faux
         if (a < i < b < j) or (i < a < j < b):
             return False
-
     return True
 
+
 def validecorde(i, j):
-    return valideCorde(i,j,tabcorde)
+    return valideCorde(i, j, tabcorde)
+
 
 def ajoutCorde(i, j):
-    if (i > j):  # permutation pour avoir j>i
+    if (i > j):
         tmp = j
         j = i
         i = tmp
@@ -121,10 +119,11 @@ def voisins(i, j):
         tmp = j
         j = i
         i = tmp
-
     if j == i + 1:
+    # les points sont adjacentq
         return True
     elif i == 0 and j == nbSommets - 1:
+    # cas du rebouclage
         return True
     else:
         return False
